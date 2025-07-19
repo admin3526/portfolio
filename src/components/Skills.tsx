@@ -2,7 +2,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Card, CardContent } from '@/components/ui/card';
-import { Code, Wrench, Lightbulb } from 'lucide-react';
+import { Code, Wrench, Lightbulb, BookOpen } from 'lucide-react';
 import { useScrollAnimation } from '@/hooks/use-animations';
 
 const Skills = () => {
@@ -29,13 +29,13 @@ const Skills = () => {
     },
     {
       title: "Currently Learning",
-      icon: "/lovable-uploads/c867917c-8af8-443d-a7dd-9b0253e50e75.png",
+      icon: BookOpen,
       color: "from-orange-500 to-orange-600",
       isLearning: true,
       skills: [
-        { name: "Revit", logo: "/lovable-uploads/2256d64d-d72a-4bd4-a30a-8dd6a952e6fb.png" },
-        { name: "3ds Max", logo: "/lovable-uploads/5adc4f08-4b4f-458a-8482-61876c4a0828.png" },
-        { name: "ETabs", logo: "/lovable-uploads/c5a56135-c6a9-49da-8b7b-79f52ef9f2b6.png" },
+        { name: "Revit", logo: "https://img.icons8.com/color/48/autodesk-revit.png" },
+        { name: "3ds Max", logo: "https://img.icons8.com/color/48/3ds-max.png" },
+        { name: "ETabs", logo: "https://res.cloudinary.com/ddsceuctd/image/upload/v1752927025/j08monariksrhuksanx7.png" },
       ]
     },
     {
@@ -181,27 +181,13 @@ const Skills = () => {
                   )}
                   <CardContent className="p-8 relative z-10">
                   <div className="text-center mb-8">
-                    {category.isLearning ? (
-                      <div className="w-16 h-16 mx-auto flex items-center justify-center mb-4 group-hover:scale-110 transition-transform animate-pulse">
-                        <img 
-                          src={category.icon as string} 
-                          alt={category.title}
-                          className="w-12 h-12 object-contain"
-                        />
-                      </div>
-                    ) : (
-                      <div className={`w-16 h-16 mx-auto rounded-2xl bg-gradient-to-br ${category.color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-lg`}>
-                        {isImageIcon ? (
-                          <img 
-                            src={category.icon as string} 
-                            alt={category.title}
-                            className="w-8 h-8 object-contain"
-                          />
-                        ) : (
-                          IconComponent && <IconComponent className="w-8 h-8 text-white" />
-                        )}
-                      </div>
-                    )}
+                    <div className={`w-16 h-16 mx-auto rounded-2xl bg-gradient-to-br ${category.color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-lg`}>
+                      {category.isLearning ? (
+                        <BookOpen className="w-8 h-8 text-white" />
+                      ) : (
+                        IconComponent && <IconComponent className="w-8 h-8 text-white" />
+                      )}
+                    </div>
                     <h3 className="text-2xl font-bold text-white">
                       {category.title}
                     </h3>
@@ -212,11 +198,11 @@ const Skills = () => {
                       <div key={skillIndex} className="group/skill">
                         {category.isLearning ? (
                           <div className="flex items-center space-x-4 p-3 rounded-lg hover:bg-orange-900/20 transition-all duration-300">
-                            <div className="flex-shrink-0 w-10 h-10 flex items-center justify-center group-hover/skill:scale-110 transition-transform animate-pulse">
+                            <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center group-hover/skill:scale-110 transition-transform animate-pulse">
                               <img 
                                 src={skill.logo} 
                                 alt={skill.name}
-                                className="w-8 h-8 object-contain"
+                                className="w-10 h-10 object-contain"
                               />
                             </div>
                             <span className="font-semibold text-gray-300 group-hover/skill:text-white transition-colors">
